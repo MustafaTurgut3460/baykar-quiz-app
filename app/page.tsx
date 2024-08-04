@@ -28,7 +28,7 @@ const optionLabels = ["A", "B", "C", "D"];
 
 export default function Home() {
   const [api, contextHolder] = notification.useNotification();
-  const [isQuizStarted, setIsQuizStarted] = useState<boolean>(true);
+  const [isQuizStarted, setIsQuizStarted] = useState<boolean>(false);
   const [isQuizEnded, setIsQuizEnded] = useState<boolean>(false);
   const [questions, setQuestions] = useState<
     { id: number; question: string; options: string[] }[]
@@ -59,7 +59,6 @@ export default function Home() {
   useEffect(() => {
     if (questions.length > 0) {
       setCurrentQuestion(questions[0]);
-      setCount(30);
     }
   }, [questions]);
 
@@ -238,7 +237,7 @@ export default function Home() {
             Quize istediğiniz zaman aşağıdaki buton ile katılabilirsiniz
           </p>
           <div className="flex justify-center mt-4">
-            <Button type="primary" onClick={() => setIsQuizStarted(true)}>
+            <Button type="primary" onClick={() => {setIsQuizStarted(true); setCount(30)}}>
               <span className="font-medium">Quizi Başlat</span>
             </Button>
           </div>

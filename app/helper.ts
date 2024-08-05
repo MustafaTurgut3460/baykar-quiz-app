@@ -1,4 +1,4 @@
-import { PostType } from "./constants";
+import { PostType } from "./types";
 
 export const getData = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
